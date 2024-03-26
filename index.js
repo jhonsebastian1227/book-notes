@@ -1,8 +1,10 @@
-import express, { text } from "express";
-import bodyParser  from "body-parser";
+// Importaciones
+import express from "express";
+import bodyParser from "body-parser";
 import axios from "axios";
 import pg from "pg";
 
+// Variables globales a usar en la creación de la app y la base de datos
 let title = [];
 let covers = [];
 const app = express();
@@ -16,12 +18,16 @@ const db = new pg.Client({
     port: 5432,
 });
 
+// Conexión a la base de datos
 db.connect();
 
+// Agregar archivos estáticos
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded( { extended: true } ))
 
+// Parsear el cuerpo de las solicitudes
+app.use(bodyParser.urlencoded({ extended: true }));
 
+// Obtener datos de la base de datos
 app.get("/", async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM book ORDER BY id DESC");
@@ -31,6 +37,7 @@ app.get("/", async (req, res) => {
     }
 });
 
+// Borrar libro de la base de datos
 app.post("/delete", async (req, res) => {
     try {
         const id = req.body.deleteId;
@@ -41,8 +48,9 @@ app.post("/delete", async (req, res) => {
     }
 });
 
+// Función para buscar el libro en la base de datos
 async function searchBook(req, res, title) {
-    const result = await axios.get(API_URL +  `search.json?title=${title.title}`);
+    const result = await axios.get(API_URL + `search.json?title=${title.title}`);
     if (result.data.numFound !== 0) {
         covers = [];
         result.data.docs.forEach((doc) => {
@@ -50,7 +58,7 @@ async function searchBook(req, res, title) {
                 covers.push(doc.cover_i);
             }
         });
-        return res.render("search.ejs", { cover_i: covers, activity: "Searched book: " + title.title });;
+        return res.render("search.ejs", { cover_i: covers, activity: "Searched book: " + title.title });
     } else {
         return res.render("search.ejs", { activity: "Book Not Found" });
     }
@@ -64,8 +72,9 @@ app.post("/search", async (req, res) => {
     }
 });
 
+// Función para añadir datos a la base de datos
 async function searchAndAdd(book) {
-    const result = await axios.get(API_URL +  `search.json?title=${title.title}`);
+    const result = await axios.get(API_URL + `search.json?title=${title.title}`);
     if (result.data.numFound !== 0) {
         covers = [];
         result.data.docs.forEach((doc) => {
@@ -90,6 +99,7 @@ app.post("/add", async (req, res) => {
     }
 });
 
+// Editar libro de la base de datos
 app.post("/edit", async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM book WHERE id = $1", [req.body.editId]);
@@ -99,28 +109,47 @@ app.post("/edit", async (req, res) => {
     }
 });
 
+// Se añade el nuevo libro a la base de datos
 app.post("/add/data-base", async (req, res) => {
     try {
         const items = Object.values(req.body);
-        items.shift()
-        await db.query("INSERT INTO book (user_name, cover_i, title, author_name, date_read, book_summary) VALUES ($1, $2, $3, $4, $5, $6)", items );
+        items.shift();
+        await db.query("INSERT INTO book (user_name, cover_i, title, author_name, date_read, book_summary) VALUES ($1, $2, $3, $4, $5, $6)", items);
         res.redirect("/");
     } catch (err) {
         console.log(err);
     }
 });
 
+// Se añaden los cambios en la base de datos
 app.post("/edit/data-base", async (req, res) => {
     try {
         const items = Object.values(req.body);
-        await db.query("UPDATE book SET user_name = ($2), cover_i = ($3), title = ($4), author_name = ($5), date_read = ($6), book_summary = ($7)  WHERE id = $1", items );
+        await db.query("UPDATE book SET user_name = ($2), cover_i = ($3), title = ($4), author_name = ($5), date_read = ($6), book_summary = ($7)  WHERE id = $1", items);
         res.redirect("/");
     } catch (err) {
         console.log(err);
     }
-    
+
 });
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+// Manejar el evento de cierre del servidor Express
+const server = app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
+
+server.on('close', () => {
+    db.end(); // Cerrar la conexión a la base de datos
+    console.log('Server stopped. Database connection closed');
+});
+
+// Cerrar el servidor cuando se presione Ctrl+C en la consola
+process.on('SIGINT', () => {
+    server.close(); // Detener el servidor Express
+});
+
+// Cerrar la conexión a la base de datos cuando el proceso de Node.js esté a punto de finalizar
+process.on('exit', () => {
+    db.end();
+    console.log('Database connection closed');
 });
