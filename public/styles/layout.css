@@ -1,0 +1,140 @@
+* {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: #F0F3FF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 4em;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    width: 100%;
+}
+
+.h2-hearde {
+    text-align: center;
+    font-size: 2em;
+    color: #555555;
+    margin: 0px 0px 20px 0px;
+    width: 100%;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.75em;
+    margin: 0;
+}
+
+h4 {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+h5 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    color: #555555;
+}
+
+p {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 4.2rem;
+    width: 100%;
+    background-color: #211951;
+}
+
+.search {
+    font-size: 1em;
+    height: 30px;
+    width: 400px;
+    border-radius: 20px 0px 0px 20px;
+    outline: none;
+    text-indent: 5%;
+    border: none;
+    background-color: #F0F3FF;
+}
+
+.search-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 40px;
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+    background-color: #F0F3FF;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0; /* Alinea el borde derecho de la lista con el borde derecho del contenedor */
+    list-style: none; /* Para eliminar los puntos de la lista */
+    padding: 0;
+}
+
+nav form {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 4.2rem;
+    width: 100%;
+}
+
+.btn-home {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #F0F3FF;
+    height: 4.2rem;
+    padding: 0px 15px 0px 15px;
+}
+
+.btn-home:hover{
+    background-color: #15F5BA;
+    color: #211951;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 20px;
+    bottom: 0; /* Asegura que el footer esté al final de la página */
+    width: 100%;
+}
+
+.p-footer {
+    color: #555555;
+    padding: 0px;
+    text-align: center;
+    height: 100%;
+}

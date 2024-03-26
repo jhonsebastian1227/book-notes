@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+
+    
+    <% for(let book of locals.books ){%>
+        <div class="container">
+            <hr>
+            <div class="container-cover_i">
+                <img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-M.jpg" alt="" class="cover_i">
+                <h3><%= book.title %></h3>
+                <h4><%= book.author_name %></h3>
+                <h5>Date read <%= book.date_read %></h4>
+                <p><%= book.book_summary %></p>
+            </div>
+            <div class="delete-edit">
+                <form method="post">
+                    <input hidden="true" name="deleteId" value="<%= book.id %>">
+                    <button type="submit" formaction="/delete" class="input-margi input">delete</button>
+                </form>
+                <form method="post">
+                    <input hidden="true" name="editId" value="<%= book.id %>">
+                    <button type="submit" formaction="/edit" class="input-margi input">edit</button>
+                </form>
+            </div>
+        </div>
+    <% } %>
+
+<%- include('partials/footer.ejs') %>

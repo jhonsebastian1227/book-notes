@@ -1,0 +1,151 @@
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 70%;
+    margin: 20px 0px 20px 0px;
+}
+
+hr {
+    margin: 0px;
+}
+
+.container-cover_i {
+    min-height: 250px;
+    margin: 20px 0px 20px 0px;
+}
+
+.cover_i {
+    display: flex;
+    float: left;
+    margin: 0px 20px 0px 0px;
+    height: 250px;
+}
+
+.delete-edit {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.input {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.3em;
+    border-radius: 15px;
+    border: none;
+    background-color: #15F5BA;
+    color: #211951;
+    height: 40px;
+    width: 120px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.input-margi {
+    margin: 10px;
+}
+
+.container-search {
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 20px 0px 20px 0px;
+}
+
+.form-search {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 30px;
+    max-width: 140px;
+    max-height: 270px;
+}
+
+.form-search img {
+    width: 140px;
+    height: 200px;
+}
+
+.h2-search {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555555;
+    margin: 20px 0px 0px 0px;
+}
+
+.btn-add-edit {
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.container-add {
+    width: 70%;
+    height: auto;
+    margin: 20px 0px 20px 0px;
+}
+
+.container-img {
+    display: flex;
+    float: left;
+    width: 280px;
+    height: 400px;
+}
+
+.container-add-cover_i {
+    display: flex;
+    margin-right: 20PX;
+    height: 400px;
+}
+
+.container-add-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    min-height: 400px;
+}
+
+.input-add-edit {
+    font-size: 1em;
+    height: 30px;
+    width: 95%;
+    margin: 0px 0px 10px 0px;
+    outline: none;
+    text-indent: 5%;
+    border: none;
+    border-bottom: 1px solid #211951;
+    background-color: #F0F3FF;
+}
+
+textarea {
+    outline: 0 none;
+    padding: 10px;
+    border: none;
+    margin: 5px 0px 5px 0px;
+    resize: vertical;
+    overflow: hidden;
+    width: 90%;
+    min-height: 30px;
+    height: auto;
+}
+
+.button-mar {
+    margin-top: 10px;
+}

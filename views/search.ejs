@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+
+<div class="display container-search">
+    <% if (locals.cover_i) { %>
+        <% cover_i.forEach(cover => { %>
+            <form method="post" class="form-search">
+                <button type="submit" name="<%= cover %>" value="add" formaction="/add" class="display btn-add-edit">
+                    <img src="https://covers.openlibrary.org/b/id/<%= cover %>-M.jpg" alt="">
+                </button>
+                <button type="submit" name="<%= cover %>" value="add" formaction="/add" class="input-margi input">Add</button>
+            </form>
+        <% }) %>
+    <% } %>
+</div>
+
+<%- include('partials/footer.ejs') %>

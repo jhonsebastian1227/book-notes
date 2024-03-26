@@ -1,0 +1,162 @@
+
+@media (min-width: 319px) and (max-width: 480px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    .h2-hearde {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 1em;
+        margin: 0;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+
+    h5 {
+        font-size: 0.5em;
+    }
+
+    p {
+        font-size: .8em;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .btn-home {
+        font-size: 1em;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+
+    .search {
+        font-size: .8em;
+        width: 150px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .cover_i {
+        float: none;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .container-cover_i {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .delete-edit {
+        justify-content: center;
+    }
+
+    .container-add {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
+    .container-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 0px 20px 0px;
+        float: none;
+        width: 100%;
+    }
+
+    .container-add-cover_i {
+        justify-content: center;
+        align-content: center;
+        float: none;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 600px) {
+    p {
+        font-size: .8em;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .search {
+        width: 260px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .cover_i {
+        float: none;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .container-cover_i {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .delete-edit {
+        justify-content: center;
+    }
+
+    .container-add {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
+    .container-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 0px 20px 0px;
+        float: none;
+        width: 100%;
+    }
+
+    .container-add-cover_i {
+        justify-content: center;
+        align-content: center;
+        float: none;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+    h5 {
+        margin: 0;
+    }
+
+    .search {
+        font-size: .8em;
+        width: 380px;
+    }
+
+    .container-img{
+        display: flex;
+        justify-content: center;
+        align-content: center;    
+    }
+
+    .container-add-cover_i {
+        margin: 0px 0px 20px 0px;
+        float: none;
+    }
+    
+}
+
+@media (min-width: 601px) and (max-width: 850px) {
+    .container-add {
+        width: 90%;
+    }
+}

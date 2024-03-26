@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+
+<form method="post" class="container-add">
+    <% for(let cover of covers){ %>
+        <div class="container-img">
+            <input type="text" name="id" value="<%= cover.id %>" hidden>
+            <img src="https://covers.openlibrary.org/b/id/<%= cover.cover_i %>-L.jpg" alt="<%= cover.cover_i %>" class="container-add-cover_i">
+        </div>
+        <div class="container-add-div">
+            <input type="text" name="user_name" value="<%= user_name %>" class="input-add-edit" required>
+            <input type="text" name="cover_i" value="<%= cover.cover_i %>" hidden>
+            <input type="text" name="title" value="<%= cover.title %>" class="input-add-edit" required>
+            <input type="text" name="author_name" value="<%= cover.author_name %>" class="input-add-edit" required>
+            <input type="date" name="date_read" value="<%= cover.date_read %>" class="input-add-edit" required>
+            <textarea name="book_summary" cols="1" rows="8" required><%= cover.book_summary %></textarea>
+            <button type="submit" value="Add book" formaction="<%= url %>" class="button-mar input"><%= activity %></button>
+        </div>
+    <% } %>
+</form>
+
+<%- include('partials/footer.ejs') %>
